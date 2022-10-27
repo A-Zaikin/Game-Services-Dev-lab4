@@ -69,11 +69,7 @@ public class MainMenu : MonoBehaviour
 1) Импортировать звуковые эффекты и музыку.
 2) Добавить в объекты AudioSource и в них ссылки на AudioClip.
 
-!["screenshot"](Screenshots/4.mp4)
-
-<video width="640" height="320" controls>
-  <source src="Screenshots/4.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/82456483/198248135-28ad1b9b-ec37-4896-b8a0-7dd5ce27ae54.mp4
 
 ## Выводы
 

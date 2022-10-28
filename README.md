@@ -145,6 +145,10 @@ public class VolumeLoader : MonoBehaviour
 
 
 
+https://user-images.githubusercontent.com/82456483/198527447-7be8993e-d4c2-4055-adae-68f1004eda3e.mp4
+
+
+
 
 ## Выводы
 

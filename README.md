@@ -79,13 +79,80 @@ https://user-images.githubusercontent.com/82456483/198248135-28ad1b9b-ec37-4896-
 
 !["screenshot"](Screenshots/5.webp)
 
+## Задание 2
+### Привести описание того, как происходит сборка проекта проекта под другие платформы. Какие могут быть особенности?
+Ход работы:
+1) Изменить настройки билда для выбранной платформы -> сделать билд.
+2) Устройства ввода могут различаться на разных платформах. Для решения проблемы можно добавить уровень абстракции между кодом для обработки ввода и игровой логикой.
+3) На некоторых платформах существуют специальные устройства ввода (акселерометр, GPS, гироскоп). В приложение можно добавить их поддержку.
+4) На мобильных устройствах существуют ограничения по памяти и производительности. Возможно, нужно будет провести оптимизацию приложения и размера ассетов на диске.
+5) Существуют директивы в коде, которые позволяют исполнять разный код на разных платформах.
+```cs
+#if UNITY_IOS
+    Debug.Log("iOS");
+#endif
+
+#if UNITY_STANDALONE_OSX
+    Debug.Log("Standalone OSX");
+#endif
+
+#if UNITY_STANDALONE_WIN
+    Debug.Log("Standalone Windows");
+#endif
+```
+
+## Задание 3
+### Добавить в меню Option возможность изменения громкости (от 0 до 100%) фоновой музыки в игре
+Ход работы:
+1) Добавить в меню настроек новый UI элемент - слайдер.
+2) Добавить в MusicManager новый скрипт:
+```cs
+using UnityEngine;
+using UnityEngine.UI;
+
+public class VolumeLoader : MonoBehaviour
+{
+    [SerializeField] private string settingsName;
+    [SerializeField] private Slider menuSlider;
+
+    private AudioSource audioSource;
+
+    public void SaveVolume(float volume)
+    {
+        audioSource.volume = volume;
+        PlayerPrefs.SetFloat(settingsName, volume);
+        PlayerPrefs.Save();
+    }
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (!PlayerPrefs.HasKey(settingsName))
+        {
+            return;
+        }
+
+        var volume = PlayerPrefs.GetFloat(settingsName);
+        audioSource.volume = volume;
+        if (menuSlider != null)
+        {
+            menuSlider.value = volume;
+        }
+    }
+}
+```
+3) On WebGL, Unity stores up to 1MB of PlayerPrefs data using the browser's IndexedDB API.
+
+
+
+
 ## Выводы
 
 Изучены:
-- интеграция интерфейса пользователя в разрабатываемое интерактивное приложение,
-- способы изменения глобального состояния игры и отображения его в интерфейсе,
-- техники структурирования исходных файлов проекта,
-- возможные виды интеграции игровых сервисов в приложение.
+- импортирование моделей и анимаций,
+- создание нескольких сцен и переключение между ними,
+- создание базового меню,
+- добавление звукового сопровождения и настроек громкости.
 
 ## Powered by
 

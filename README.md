@@ -71,6 +71,14 @@ public class MainMenu : MonoBehaviour
 
 https://user-images.githubusercontent.com/82456483/198248135-28ad1b9b-ec37-4896-b8a0-7dd5ce27ae54.mp4
 
+#### Работа 5: «Добавление персонажа и сборка сцены для публикации на web-ресурсе»
+1) Скачать и импортировать модель персонажа и анимации с mixamo.com.
+2) Добавить на сцену префаб мага и настроить AnimationController.
+3) Добавить на сцену источники света.
+4) Провести сборку приложения.
+
+!["screenshot"](Screenshots/5.webp)
+
 ## Выводы
 
 Изучены:
